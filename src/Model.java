@@ -1,3 +1,5 @@
+package MVC_coches.src;
+
 import java.util.ArrayList;
 
 /**
@@ -55,4 +57,28 @@ public class Model {
     public int getVelocidad(String matricula) {
         return getCoche(matricula).velocidad;
     }
+
+    public int subirVelocidad(String matricula, int incremento) {
+        Coche coche = getCoche(matricula);
+        if (coche != null) {
+            coche.velocidad += incremento;
+            return coche.velocidad;
+        } else {
+            throw new IllegalArgumentException("Coche no encontrado");
+        }
+    }
+
+    public int bajarVelocidad(String matricula, int decremento) {
+        Coche coche = getCoche(matricula);
+        if (coche != null) {
+            coche.velocidad -= decremento;
+            if (coche.velocidad < 0) {
+                coche.velocidad = 0;
+            }
+            return coche.velocidad;
+        } else {
+            throw new IllegalArgumentException("Coche no encontrado");
+        }
+    }
+
 }

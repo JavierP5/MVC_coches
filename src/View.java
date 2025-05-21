@@ -1,3 +1,5 @@
+package MVC_coches.src;
+
 /**
  * Clase encargada de la interacción con el usuario
  */
